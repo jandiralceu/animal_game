@@ -1,7 +1,17 @@
 import os, sys
 
+from game.animal_node import AnimalNode
+
 def main():
-    print("Welcome to the animal game!")
+    # Initialize the tree.
+    root = AnimalNode(question="platypus")
+
+    # Display instructions.
+    print('Answer y for Yes, n for No, and q for Quit\n')
+
+    # Repeat until the user quits.
+    while root.ask_question():
+        pass
 
 
 if __name__ == "__main__":
