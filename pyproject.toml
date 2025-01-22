@@ -1,9 +1,12 @@
 [tool.poetry]
-name = "animal-game"
+name = "game"
 version = "0.1.0"
 description = ""
 authors = ["Jandir A. Cutabiala <me@jandir.co>"]
 readme = "README.md"
+
+[tool.poetry.scripts]
+app = "game.app:main"
 
 [tool.poetry.dependencies]
 python = "^3.13"
