@@ -10,7 +10,7 @@ install: ## Install dependencies
 
 docker: ## Build the Docker image
 	@echo "Building the Docker image..."
-	docker build -t Tanu-Software/fit-notification:latest .
+	docker build -t jandir/animal-game:latest .
 
 help: ## Display all available commands
 	@echo "Available commands:"
