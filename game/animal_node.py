@@ -8,15 +8,19 @@ class AnimalNode:
     no_path: 'AnimalNode' = field(default=None)
 
     def article(self) -> str:
+        """Return 'a' or 'an' depending on the first letter of the question."""
         return "an" if self.question[0].lower() in "aeiou" else "a"
 
     def full_name(self) -> str:
+        """Return the full name of the animal."""
         return f"{self.article()} {self.question}"
 
     def is_leaf(self) -> bool:
+        """Return True if the node is a leaf."""
         return self.yes_path is None and self.no_path is None
 
     def ask_question(self) -> bool:
+        """Ask a question and return True if the user wants to play again."""
         if not self.is_leaf():
             answer = input(f"Is it {self.full_name()}? ")
             print()
