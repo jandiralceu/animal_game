@@ -1,8 +1,20 @@
+"""
+Main class 
+"""
+
 from dataclasses import dataclass, field
 from copy import copy
+from enum import Enum
+
+class Answer(Enum):
+    """User possible answers"""
+    YES = "y"
+    NO = "n"
+    QUIT = "q"
 
 @dataclass
 class AnimalNode:
+    """AnimalNode"""
     question: str
     yes_path: 'AnimalNode' = field(default=None)
     no_path: 'AnimalNode' = field(default=None)
@@ -25,20 +37,20 @@ class AnimalNode:
             answer = input(f"Is it {self.full_name()}? ")
             print()
 
-            if answer == "q" :
+            if answer == Answer.QUIT:
                 return False
-            
-            if answer == "y":
-                self.yes_path.ask_question() 
+
+            if answer == Answer.YES:
+                self.yes_path.ask_question()
             else:
                 self.no_path.ask_question()
         else:
             answer = input(f"Is it {self.full_name()}? ")
 
-            if answer == "q" :
+            if answer == Answer.QUIT:
                 return False
-            
-            if answer == "y":
+
+            if answer == Answer.YES:
                 print("I won!😎\n")
                 print()
             else:
@@ -52,7 +64,7 @@ class AnimalNode:
                 old_animal = copy(self)
                 self.question = new_question
 
-                if new_answer == "y" :
+                if new_answer == Answer.YES :
                     self.yes_path = new_node
                     self.no_path = old_animal
                 else:
@@ -61,5 +73,4 @@ class AnimalNode:
 
             answer = input("Play again? ")
             print()
-            return answer == "y"
-
+            return answer == Answer.YES
