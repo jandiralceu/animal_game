@@ -37,20 +37,20 @@ class AnimalNode:
             answer = input(f"Is it {self.full_name()}? ")
             print()
 
-            if answer == Answer.QUIT:
+            if answer == Answer.QUIT.value:
                 return False
 
-            if answer == Answer.YES:
+            if answer == Answer.YES.value:
                 self.yes_path.ask_question()
             else:
                 self.no_path.ask_question()
         else:
             answer = input(f"Is it {self.full_name()}? ")
 
-            if answer == Answer.QUIT:
+            if answer == Answer.QUIT.value:
                 return False
 
-            if answer == Answer.YES:
+            if answer == Answer.YES.value:
                 print("I won!😎\n")
                 print()
             else:
@@ -64,7 +64,7 @@ class AnimalNode:
                 old_animal = copy(self)
                 self.question = new_question
 
-                if new_answer == Answer.YES :
+                if new_answer == Answer.YES.value:
                     self.yes_path = new_node
                     self.no_path = old_animal
                 else:
@@ -73,4 +73,4 @@ class AnimalNode:
 
             answer = input("Play again? ")
             print()
-            return answer == Answer.YES
+            return answer == Answer.YES.value
